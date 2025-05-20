@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
+import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -41,7 +43,7 @@ class FFAppState extends ChangeNotifier {
       _ActivityLevel = prefs.getString('ff_ActivityLevel') ?? _ActivityLevel;
     });
     _safeInit(() {
-      _CalorieCalc = prefs.getInt('ff_CalorieCalc') ?? _CalorieCalc;
+      _CalorieNeeded = prefs.getInt('ff_CalorieNeeded') ?? _CalorieNeeded;
     });
     _safeInit(() {
       _CaloriesLeft = prefs.getDouble('ff_CaloriesLeft') ?? _CaloriesLeft;
@@ -56,13 +58,13 @@ class FFAppState extends ChangeNotifier {
       _FatLeft = prefs.getDouble('ff_FatLeft') ?? _FatLeft;
     });
     _safeInit(() {
-      _ProtienCalc = prefs.getInt('ff_ProtienCalc') ?? _ProtienCalc;
+      _ProtienNeeded = prefs.getInt('ff_ProtienNeeded') ?? _ProtienNeeded;
     });
     _safeInit(() {
-      _CarbsCalc = prefs.getInt('ff_CarbsCalc') ?? _CarbsCalc;
+      _CarbsNeeded = prefs.getInt('ff_CarbsNeeded') ?? _CarbsNeeded;
     });
     _safeInit(() {
-      _FatCalc = prefs.getInt('ff_FatCalc') ?? _FatCalc;
+      _FatNeeded = prefs.getInt('ff_FatNeeded') ?? _FatNeeded;
     });
     _safeInit(() {
       _ProgessLeft = prefs.getDouble('ff_ProgessLeft') ?? _ProgessLeft;
@@ -105,6 +107,35 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _selectedLanguage =
           prefs.getString('ff_selectedLanguage') ?? _selectedLanguage;
+    });
+    _safeInit(() {
+      _listOfMeals = prefs.getStringList('ff_listOfMeals')?.map((x) {
+            try {
+              return jsonDecode(x);
+            } catch (e) {
+              print("Can't decode persisted json. Error: $e.");
+              return {};
+            }
+          }).toList() ??
+          _listOfMeals;
+    });
+    _safeInit(() {
+      _CaloriesUsed = prefs.getDouble('ff_CaloriesUsed') ?? _CaloriesUsed;
+    });
+    _safeInit(() {
+      _CarbsUsed = prefs.getDouble('ff_CarbsUsed') ?? _CarbsUsed;
+    });
+    _safeInit(() {
+      _FatUsed = prefs.getDouble('ff_FatUsed') ?? _FatUsed;
+    });
+    _safeInit(() {
+      _ProtainsUsed = prefs.getDouble('ff_ProtainsUsed') ?? _ProtainsUsed;
+    });
+    _safeInit(() {
+      _dateOfBirthT = prefs.containsKey('ff_dateOfBirthT')
+          ? DateTime.fromMillisecondsSinceEpoch(
+              prefs.getInt('ff_dateOfBirthT')!)
+          : _dateOfBirthT;
     });
   }
 
@@ -224,11 +255,11 @@ class FFAppState extends ChangeNotifier {
     prefs.setString('ff_ActivityLevel', value);
   }
 
-  int _CalorieCalc = 0;
-  int get CalorieCalc => _CalorieCalc;
-  set CalorieCalc(int value) {
-    _CalorieCalc = value;
-    prefs.setInt('ff_CalorieCalc', value);
+  int _CalorieNeeded = 0;
+  int get CalorieNeeded => _CalorieNeeded;
+  set CalorieNeeded(int value) {
+    _CalorieNeeded = value;
+    prefs.setInt('ff_CalorieNeeded', value);
   }
 
   String _currentDate = '';
@@ -265,25 +296,25 @@ class FFAppState extends ChangeNotifier {
     prefs.setDouble('ff_FatLeft', value);
   }
 
-  int _ProtienCalc = 0;
-  int get ProtienCalc => _ProtienCalc;
-  set ProtienCalc(int value) {
-    _ProtienCalc = value;
-    prefs.setInt('ff_ProtienCalc', value);
+  int _ProtienNeeded = 0;
+  int get ProtienNeeded => _ProtienNeeded;
+  set ProtienNeeded(int value) {
+    _ProtienNeeded = value;
+    prefs.setInt('ff_ProtienNeeded', value);
   }
 
-  int _CarbsCalc = 0;
-  int get CarbsCalc => _CarbsCalc;
-  set CarbsCalc(int value) {
-    _CarbsCalc = value;
-    prefs.setInt('ff_CarbsCalc', value);
+  int _CarbsNeeded = 0;
+  int get CarbsNeeded => _CarbsNeeded;
+  set CarbsNeeded(int value) {
+    _CarbsNeeded = value;
+    prefs.setInt('ff_CarbsNeeded', value);
   }
 
-  int _FatCalc = 0;
-  int get FatCalc => _FatCalc;
-  set FatCalc(int value) {
-    _FatCalc = value;
-    prefs.setInt('ff_FatCalc', value);
+  int _FatNeeded = 0;
+  int get FatNeeded => _FatNeeded;
+  set FatNeeded(int value) {
+    _FatNeeded = value;
+    prefs.setInt('ff_FatNeeded', value);
   }
 
   double _ProgessLeft = 0.0;
@@ -374,6 +405,84 @@ class FFAppState extends ChangeNotifier {
   set selectedLanguage(String value) {
     _selectedLanguage = value;
     prefs.setString('ff_selectedLanguage', value);
+  }
+
+  List<dynamic> _listOfMeals = [];
+  List<dynamic> get listOfMeals => _listOfMeals;
+  set listOfMeals(List<dynamic> value) {
+    _listOfMeals = value;
+    prefs.setStringList(
+        'ff_listOfMeals', value.map((x) => jsonEncode(x)).toList());
+  }
+
+  void addToListOfMeals(dynamic value) {
+    listOfMeals.add(value);
+    prefs.setStringList(
+        'ff_listOfMeals', _listOfMeals.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeFromListOfMeals(dynamic value) {
+    listOfMeals.remove(value);
+    prefs.setStringList(
+        'ff_listOfMeals', _listOfMeals.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeAtIndexFromListOfMeals(int index) {
+    listOfMeals.removeAt(index);
+    prefs.setStringList(
+        'ff_listOfMeals', _listOfMeals.map((x) => jsonEncode(x)).toList());
+  }
+
+  void updateListOfMealsAtIndex(
+    int index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    listOfMeals[index] = updateFn(_listOfMeals[index]);
+    prefs.setStringList(
+        'ff_listOfMeals', _listOfMeals.map((x) => jsonEncode(x)).toList());
+  }
+
+  void insertAtIndexInListOfMeals(int index, dynamic value) {
+    listOfMeals.insert(index, value);
+    prefs.setStringList(
+        'ff_listOfMeals', _listOfMeals.map((x) => jsonEncode(x)).toList());
+  }
+
+  double _CaloriesUsed = 0.0;
+  double get CaloriesUsed => _CaloriesUsed;
+  set CaloriesUsed(double value) {
+    _CaloriesUsed = value;
+    prefs.setDouble('ff_CaloriesUsed', value);
+  }
+
+  double _CarbsUsed = 0.0;
+  double get CarbsUsed => _CarbsUsed;
+  set CarbsUsed(double value) {
+    _CarbsUsed = value;
+    prefs.setDouble('ff_CarbsUsed', value);
+  }
+
+  double _FatUsed = 0.0;
+  double get FatUsed => _FatUsed;
+  set FatUsed(double value) {
+    _FatUsed = value;
+    prefs.setDouble('ff_FatUsed', value);
+  }
+
+  double _ProtainsUsed = 0.0;
+  double get ProtainsUsed => _ProtainsUsed;
+  set ProtainsUsed(double value) {
+    _ProtainsUsed = value;
+    prefs.setDouble('ff_ProtainsUsed', value);
+  }
+
+  DateTime? _dateOfBirthT;
+  DateTime? get dateOfBirthT => _dateOfBirthT;
+  set dateOfBirthT(DateTime? value) {
+    _dateOfBirthT = value;
+    value != null
+        ? prefs.setInt('ff_dateOfBirthT', value.millisecondsSinceEpoch)
+        : prefs.remove('ff_dateOfBirthT');
   }
 }
 

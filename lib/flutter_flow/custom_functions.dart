@@ -14,11 +14,19 @@ import '/auth/supabase_auth/auth_util.dart';
 int calcCaloriesNeeds(
   int weight,
   int height,
-  int age,
+  DateTime dateOfBirth,
   String gender,
   String activityLevel,
   String goal,
 ) {
+  // Calculate age from date of birth
+  final now = DateTime.now();
+  int age = now.year - dateOfBirth.year;
+  if (now.month < dateOfBirth.month ||
+      (now.month == dateOfBirth.month && now.day < dateOfBirth.day)) {
+    age--;
+  }
+
   double bmr;
 
   // Calculate BMR based on gender
@@ -52,8 +60,8 @@ int calcCaloriesNeeds(
   }
 
   int finaloutput;
-  // Calculate Daily Calorie Needs
   int originalNeeds = (bmr * activityMultiplier).round();
+
   if (goal == "Lose weight") {
     finaloutput = originalNeeds - 500;
   } else if (goal == "Gain weight") {
@@ -159,27 +167,17 @@ String encodeStringWhatsapp(
   String predProtien,
 ) {
   String message =
-      'Hey! I found this meal\'s nutritional information by a single click using the So\'orat app! 🍽️\n\n' +
-          '📸 Meal Image: ' +
-          imageUri +
-          '\n\n' +
-          'Here’s the nutrition info:\n' +
-          '✅ Calories: ' +
-          predCalories.substring(0, math.min(5, predCalories.length)) +
-          ' cal\n' +
-          '🥖 Carbs: ' +
-          predCarbs.substring(0, math.min(4, predCarbs.length)) +
-          ' g\n' +
-          '💪 Protein: ' +
-          predProtien.substring(0, math.min(4, predProtien.length)) +
-          ' g\n' +
-          '🧈 Fat: ' +
-          predFat.substring(0, math.min(4, predFat.length)) +
-          ' g\n\n' +
-          'Check out So\'orat to see nutrition info for your meals! 🚀';
+      'Hey! I found this meal\'s nutritional information by a single click using the So\'orat app! 🍽️\n\n'
+      '📸 Meal Image: $imageUri\n\n'
+      'Here’s the nutrition info:\n'
+      '✅ Calories: ${predCalories.substring(0, math.min(5, predCalories.length))} cal\n'
+      '🥖 Carbs: ${predCarbs.substring(0, math.min(4, predCarbs.length))} g\n'
+      '💪 Protein: ${predProtien.substring(0, math.min(4, predProtien.length))} g\n'
+      '🧈 Fat: ${predFat.substring(0, math.min(4, predFat.length))} g\n\n'
+      'Check out So\'orat https://soorat.flutterflow.app to see nutrition info for your meals! 🚀';
 
-  var encoded = Uri.encodeFull(message);
-  return encoded;
+  // Only encode the message when inserting it into a URL
+  return Uri.encodeComponent(message);
 }
 
 String encodeStringWhatsapp1(
@@ -207,11 +205,29 @@ String encodeStringWhatsapp1(
           '🛢️ Fat: ' +
           predFat +
           ' g\n\n' +
-          'Check out So\'orat to see nutrition info for your meals! 🚀';
+          'Check out So\'orat https://soorat.flutterflow.app to see nutrition info for your meals! 🚀';
 
   return message; // No encoding
 }
 
 String decodeLanguageText(String text) {
   return utf8.decode(text.runes.toList());
+}
+
+double calcNutritionsLeft(
+  int needed,
+  double used,
+) {
+  return needed - used;
+}
+
+int calculateAgeProfile(DateTime dateofbirth) {
+  final now = DateTime.now();
+  int age = now.year - dateofbirth.year;
+  if (now.month < dateofbirth.month ||
+      (now.month == dateofbirth.month && now.day < dateofbirth.day)) {
+    age--;
+  }
+
+  return age;
 }

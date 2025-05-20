@@ -257,7 +257,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Personnalisons votre parcours santé avec Soorat!',
     },
     'pjeh8bf2': {
-      'en': 'What is your age?',
+      'en': 'Select your date of birth',
       'ar': 'ما هو عمرك؟',
       'fr': 'Quel âge as-tu?',
     },
@@ -299,6 +299,36 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'دعنا نخصص رحلتك الصحية مع سعرات! ',
       'fr': 'Personnalisons votre parcours santé avec Soorat!',
     },
+    'p6nhx77b': {
+      'en': 'What is your goal?',
+      'ar': 'ما هو هدفك؟',
+      'fr': 'Quel est ton objectif ?',
+    },
+    'qofpvy7h': {
+      'en': 'Select goal',
+      'ar': 'حدد الهدف',
+      'fr': 'Sélectionnez l\'objectif',
+    },
+    'o78b330p': {
+      'en': 'Search...',
+      'ar': 'يبحث...',
+      'fr': 'Recherche...',
+    },
+    'xvhue7on': {
+      'en': 'Lose weight',
+      'ar': 'Lose weight',
+      'fr': 'Lose weight',
+    },
+    'r6u81q33': {
+      'en': 'Maintain weight',
+      'ar': 'Maintain weight',
+      'fr': 'Maintain weight',
+    },
+    'vfs71frm': {
+      'en': 'Gain weight',
+      'ar': 'Gain weight',
+      'fr': 'Gain weight',
+    },
     'b6mjnxms': {
       'en': 'What is your activity level?',
       'ar': 'ما هو مستوى نشاطك؟',
@@ -338,36 +368,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Extra active (very intense activity)',
       'ar': 'Extra active (very intense activity)',
       'fr': 'Extra active (very intense activity)',
-    },
-    'p6nhx77b': {
-      'en': 'What is your goal?',
-      'ar': 'ما هو هدفك؟',
-      'fr': 'Quel est ton objectif ?',
-    },
-    'qofpvy7h': {
-      'en': 'Select goal',
-      'ar': 'حدد الهدف',
-      'fr': 'Sélectionnez l\'objectif',
-    },
-    'o78b330p': {
-      'en': 'Search...',
-      'ar': 'يبحث...',
-      'fr': 'Recherche...',
-    },
-    'xvhue7on': {
-      'en': 'Lose weight',
-      'ar': 'Lose weight',
-      'fr': 'Lose weight',
-    },
-    'r6u81q33': {
-      'en': 'Maintain weight',
-      'ar': 'Maintain weight',
-      'fr': 'Maintain weight',
-    },
-    'vfs71frm': {
-      'en': 'Gain weight',
-      'ar': 'Gain weight',
-      'fr': 'Gain weight',
     },
     'ofj4ernz': {
       'en': 'Next',
@@ -547,6 +547,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Home
   {
+    '0se4w1f8': {
+      'en': 'Needed Calories',
+      'ar': 'السعرات المطلوبة',
+      'fr': 'Calories nécessaires',
+    },
+    'zhyk2tty': {
+      'en': ' Nutritions',
+      'ar': 'القيم الغذائية',
+      'fr': 'Valeurs nutritionnelles',
+    },
+    'x5ylnk9v': {
+      'en': 'Remaining',
+      'ar': 'المتبقي',
+      'fr': 'Restant',
+    },
+    'dullg12h': {
+      'en': 'Needed',
+      'ar': 'الاحتياج',
+      'fr': 'Besoin',
+    },
     'vqq2k3q2': {
       'en': 'Carbs ',
       'ar': 'كارب',
@@ -1008,14 +1028,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // cameraPage
   {
     '4o1vmr5t': {
-      'en': 'Tap to select image',
-      'ar': 'انقر لالتقاط أو اختيار الصورة',
-      'fr': 'Appuyez pour sélectionner l\'image',
+      'en': 'Image of the meal',
+      'ar': 'صورة الطبق',
+      'fr': 'Image du repas',
     },
     'xb743y99': {
-      'en': 'Upload',
-      'ar': 'رفع',
-      'fr': 'Télécharger',
+      'en': 'Upload a meal',
+      'ar': 'اختر طبق',
+      'fr': 'Télécharger un repas',
     },
     'dttw8v98': {
       'en': 'Result',
@@ -1145,7 +1165,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // feedback1
   {
     'y2svwcwf': {
-      'en': 'How was your result?',
+      'en': 'How was our estimation?',
       'ar': 'كيف كانت نتيجتك؟',
       'fr': 'Comment s\'est passé votre résultat ?',
     },
@@ -1214,9 +1234,136 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Deem Alqasir',
     },
     '2d3gzw3f': {
-      'en': '© 2025 Our Amazing Team. All rights reserved.',
+      'en':
+          '© 2025 Our Amazing Team. Both the predictions result and advice are generated automatically through AI models.',
       'ar': '© ٢٠٢٥ فريقنا الرائع. جميع الحقوق محفوظة.',
       'fr': '© 2025 Notre équipe formidable. Tous droits réservés.',
+    },
+  },
+  // languages
+  {
+    'exbeuder': {
+      'en': 'Choose Your Language',
+      'ar': 'اختر لغتك ',
+      'fr': 'Choisissez votre langue',
+    },
+    'ocyd1aam': {
+      'en': 'English',
+      'ar': 'English',
+      'fr': 'English',
+    },
+    'tfmtv7ip': {
+      'en': 'العربية',
+      'ar': 'العربية',
+      'fr': 'العربية',
+    },
+    'rbuo5epi': {
+      'en': 'Français',
+      'ar': 'Français',
+      'fr': 'Français',
+    },
+    'ouanc10k': {
+      'en': 'Apply',
+      'ar': 'تطبيق',
+      'fr': 'Appliquer',
+    },
+  },
+  // Instructions
+  {
+    'r4sq6k38': {
+      'en': 'How to Take a Great Food Photo ',
+      'ar': 'كيفية التقاط صورة جيدة للطعام',
+      'fr': 'Comment prendre une bonne photo de nourriture',
+    },
+    'mmghjhgw': {
+      'en': 'Tips for Better Food Photos:',
+      'ar': 'نصائح للحصول على صور طعام أفضل:',
+      'fr': 'Conseils pour prendre de meilleures photos de nourriture :',
+    },
+    '7ooeey5j': {
+      'en':
+          'For the best results, Snap your food like a pro! 📸 from above (top-down) 🔝, with good lighting 🌞 and no shadows. Make sure the whole dish is visible and avoid blurry or dark images ❌.',
+      'ar':
+          'للحصول على أفضل النتائج، التقط صور طعامك باحترافية! 📸 من الأعلى (من الأعلى إلى الأسفل) 🔝، بإضاءة جيدة 🌞 وبدون ظلال. تأكد من أن الطبق كاملاً مرئي، وتجنب الصور الضبابية أو المظلمة ❌.',
+      'fr':
+          'Pour un résultat optimal, prenez vos plats en photo comme un pro ! 📸 de haut en bas 🔝, avec un bon éclairage 🌞 et sans ombres. Assurez-vous que tout le plat est visible et évitez les images floues ou sombres ❌.',
+    },
+  },
+  // instructions00
+  {
+    'js65ooqn': {
+      'en': 'How to Take Great Food Photos',
+      'ar': '',
+      'fr': '',
+    },
+    '06tabxbx': {
+      'en': '1',
+      'ar': '',
+      'fr': '',
+    },
+    'zmxilydt': {
+      'en': 'Find Natural Light',
+      'ar': '',
+      'fr': '',
+    },
+    'rgvpbrsn': {
+      'en':
+          'Position your plate near a window for soft, natural lighting. Avoid harsh direct sunlight or flash.',
+      'ar': '',
+      'fr': '',
+    },
+    'ea9f1kqo': {
+      'en': '2',
+      'ar': '',
+      'fr': '',
+    },
+    'et0t9yr4': {
+      'en': 'Choose the Right Angle',
+      'ar': '',
+      'fr': '',
+    },
+    'xhip7oq4': {
+      'en':
+          'Try shooting from directly above (flat lay) or at a 45-degree angle to showcase your dish\'s best features.',
+      'ar': '',
+      'fr': '',
+    },
+    'opcftrh6': {
+      'en': '3',
+      'ar': '',
+      'fr': '',
+    },
+    'pzpsq2mx': {
+      'en': 'Keep It Simple',
+      'ar': '',
+      'fr': '',
+    },
+    '1padeezx': {
+      'en':
+          'Use a clean, uncluttered background. White plates and neutral surfaces work best to make your food stand out.',
+      'ar': '',
+      'fr': '',
+    },
+    'yv7iqlzb': {
+      'en': '4',
+      'ar': '',
+      'fr': '',
+    },
+    '52feqftu': {
+      'en': 'Focus on Details',
+      'ar': '',
+      'fr': '',
+    },
+    'qjlmpjt5': {
+      'en':
+          'Make sure your dish is the star. Capture textures, colors, and garnishes that make your food special.',
+      'ar': '',
+      'fr': '',
+    },
+    'swvfnw56': {
+      'en': 'Take Your Photo',
+      'ar': '',
+      'fr': '',
     },
   },
   // Miscellaneous

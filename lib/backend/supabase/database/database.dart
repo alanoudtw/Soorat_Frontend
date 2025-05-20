@@ -6,6 +6,5 @@ export 'row.dart';
 export 'table.dart';
 
 export 'tables/feedback.dart';
-export 'tables/users_test.dart';
 export 'tables/users.dart';
 export 'tables/upload_img.dart';

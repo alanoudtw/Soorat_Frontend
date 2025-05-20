@@ -92,7 +92,7 @@ class OpenAICallCall {
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization':
-            'Bearer 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',
+            'Bearer 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',
       },
       params: {},
       body: ffApiRequestBody,

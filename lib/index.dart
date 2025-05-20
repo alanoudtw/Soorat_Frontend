@@ -8,7 +8,7 @@ export '/authentication/sign_up/sign_up_widget.dart' show SignUpWidget;
 export '/authentication/sign_in/sign_in_widget.dart' show SignInWidget;
 export '/test/testbackendsupabase/testbackendsupabase_widget.dart'
     show TestbackendsupabaseWidget;
-export '/pages/home/home_widget.dart' show HomeWidget;
+export '/page/home/home_widget.dart' show HomeWidget;
 export '/test/progress/progress_widget.dart' show ProgressWidget;
 export '/test/profile_copy/profile_copy_widget.dart' show ProfileCopyWidget;
 export '/profile/profile/profile_widget.dart' show ProfileWidget;
@@ -20,7 +20,7 @@ export '/test/home_copy/home_copy_widget.dart' show HomeCopyWidget;
 export '/test/test_display/test_display_widget.dart' show TestDisplayWidget;
 export '/test/camera_not_working/camera_not_working_widget.dart'
     show CameraNotWorkingWidget;
-export '/pages/camera_page/camera_page_widget.dart' show CameraPageWidget;
+export '/page/camera_page/camera_page_widget.dart' show CameraPageWidget;
 export '/feedback/feedback_widget.dart' show FeedbackWidget;
 export '/test/profile_copy_language_selector/profile_copy_language_selector_widget.dart'
     show ProfileCopyLanguageSelectorWidget;
