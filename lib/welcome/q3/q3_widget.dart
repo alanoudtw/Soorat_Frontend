@@ -6,6 +6,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'q3_model.dart';
 export 'q3_model.dart';
@@ -65,15 +66,28 @@ class _Q3WidgetState extends State<Q3Widget> {
                     alignment: AlignmentDirectional(1.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'dadcie70' /* Welcome! */,
+                        'dsycokik' /* Welcome! */,
                       ),
                       textAlign: TextAlign.center,
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Work Sans',
+                                font: GoogleFonts.workSans(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontStyle,
+                                ),
                                 color: Color(0xFFF1F4F8),
                                 fontSize: 36.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontStyle,
                                 lineHeight: 2.5,
                               ),
                     ),
@@ -113,11 +127,19 @@ class _Q3WidgetState extends State<Q3Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Sora',
+                                    font: GoogleFonts.sora(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Color(0xFF3E423A),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                           ),
@@ -127,15 +149,28 @@ class _Q3WidgetState extends State<Q3Widget> {
                               0.0, 90.0, 0.0, 7.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'b6mjnxms' /* What is your activity level? */,
+                              'p6nhx77b' /* What is your goal? */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  font: GoogleFonts.roboto(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFF3E423A),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -144,33 +179,44 @@ class _Q3WidgetState extends State<Q3Widget> {
                               FormFieldController<String>(null),
                           options: [
                             FFLocalizations.of(context).getText(
-                              'ykx30j03' /* Sedentary (little/ no exercise... */,
+                              'xvhue7on' /* Lose weight */,
                             ),
                             FFLocalizations.of(context).getText(
-                              'byc5wj6n' /* Lightly active (exercise1-3 da... */,
+                              'r6u81q33' /* Maintain weight */,
                             ),
                             FFLocalizations.of(context).getText(
-                              'y3khnzrw' /* Moderately active (exercise 3-... */,
-                            ),
-                            FFLocalizations.of(context).getText(
-                              'rzeghp2i' /* Very active (exercise 6-7 days... */,
-                            ),
-                            FFLocalizations.of(context).getText(
-                              '3m0m5ifw' /* Extra active (very intense act... */,
+                              'vfs71frm' /* Gain weight */,
                             )
                           ],
-                          onChanged: (val) =>
-                              safeSetState(() => _model.dropDownValue1 = val),
+                          onChanged: (val) async {
+                            safeSetState(() => _model.dropDownValue1 = val);
+                            safeSetState(() {
+                              _model.dropDownValueController2?.value = '';
+                            });
+                          },
                           width: 200.0,
                           height: 40.0,
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Color(0xFF14181B),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           hintText: FFLocalizations.of(context).getText(
-                            'qdavpoek' /* Select activity level */,
+                            'qofpvy7h' /* Select goal */,
                           ),
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
@@ -194,15 +240,28 @@ class _Q3WidgetState extends State<Q3Widget> {
                               0.0, 25.0, 0.0, 7.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'p6nhx77b' /* What is your goal? */,
+                              'b6mjnxms' /* What is your activity level? */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  font: GoogleFonts.roboto(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFF3E423A),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -211,31 +270,46 @@ class _Q3WidgetState extends State<Q3Widget> {
                               FormFieldController<String>(null),
                           options: [
                             FFLocalizations.of(context).getText(
-                              'xvhue7on' /* Lose weight */,
+                              'ykx30j03' /* Sedentary (little/ no exercise... */,
                             ),
                             FFLocalizations.of(context).getText(
-                              'r6u81q33' /* Maintain weight */,
+                              'byc5wj6n' /* Lightly active (exercise1-3 da... */,
                             ),
                             FFLocalizations.of(context).getText(
-                              'vfs71frm' /* Gain weight */,
+                              'y3khnzrw' /* Moderately active (exercise 3-... */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              'rzeghp2i' /* Very active (exercise 6-7 days... */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              '3m0m5ifw' /* Extra active (very intense act... */,
                             )
                           ],
-                          onChanged: (val) async {
-                            safeSetState(() => _model.dropDownValue2 = val);
-                            safeSetState(() {
-                              _model.dropDownValueController1?.value = '';
-                            });
-                          },
+                          onChanged: (val) =>
+                              safeSetState(() => _model.dropDownValue2 = val),
                           width: 200.0,
                           height: 40.0,
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Color(0xFF14181B),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           hintText: FFLocalizations.of(context).getText(
-                            'qofpvy7h' /* Select goal */,
+                            'qdavpoek' /* Select activity level */,
                           ),
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
@@ -278,60 +352,61 @@ class _Q3WidgetState extends State<Q3Widget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
-                                  onPressed: (_model.dropDownValue1 == null ||
-                                          _model.dropDownValue1 == '')
+                                  onPressed: (_model.dropDownValue2 == null ||
+                                          _model.dropDownValue2 == '')
                                       ? null
                                       : () async {
                                           FFAppState().ActivityLevel =
-                                              _model.dropDownValue1!;
+                                              _model.dropDownValue2!;
                                           safeSetState(() {});
                                           FFAppState().goal =
-                                              _model.dropDownValue2!;
+                                              _model.dropDownValue1!;
                                           safeSetState(() {});
 
                                           context.pushNamed(
                                               SignUpWidget.routeName);
 
-                                          FFAppState().CalorieCalc =
+                                          FFAppState().CalorieNeeded =
                                               functions.calcCaloriesNeeds(
                                                   FFAppState().weight,
                                                   FFAppState().height,
-                                                  FFAppState().age,
+                                                  FFAppState().dateOfBirthT!,
                                                   FFAppState().gender,
                                                   FFAppState().ActivityLevel,
                                                   FFAppState().goal);
                                           safeSetState(() {});
                                           FFAppState().CaloriesLeft =
                                               FFAppState()
-                                                  .CalorieCalc
+                                                  .CalorieNeeded
                                                   .toDouble();
                                           safeSetState(() {});
-                                          FFAppState().ProtienCalc =
+                                          FFAppState().ProtienNeeded =
                                               functions.calcProteinNeeds(
-                                                  FFAppState().CalorieCalc);
+                                                  FFAppState().CalorieNeeded);
                                           safeSetState(() {});
                                           FFAppState().ProtienLeft =
                                               FFAppState()
-                                                  .ProtienCalc
+                                                  .ProtienNeeded
                                                   .toDouble();
                                           safeSetState(() {});
-                                          FFAppState().CarbsCalc =
+                                          FFAppState().CarbsNeeded =
                                               functions.calcCarbNeeds(
-                                                  FFAppState().CalorieCalc);
+                                                  FFAppState().CalorieNeeded);
                                           safeSetState(() {});
-                                          FFAppState().CarbsLeft =
-                                              FFAppState().CarbsCalc.toDouble();
+                                          FFAppState().CarbsLeft = FFAppState()
+                                              .CarbsNeeded
+                                              .toDouble();
                                           safeSetState(() {});
-                                          FFAppState().FatCalc =
+                                          FFAppState().FatNeeded =
                                               functions.calcFatNeeds(
-                                                  FFAppState().CalorieCalc);
+                                                  FFAppState().CalorieNeeded);
                                           safeSetState(() {});
                                           FFAppState().FatLeft =
-                                              FFAppState().FatCalc.toDouble();
+                                              FFAppState().FatNeeded.toDouble();
                                           safeSetState(() {});
                                         },
                                   text: FFLocalizations.of(context).getText(
-                                    '49cv94vr' /* Next */,
+                                    'ofj4ernz' /* Next */,
                                   ),
                                   options: FFButtonOptions(
                                     width: 121.1,
@@ -344,9 +419,26 @@ class _Q3WidgetState extends State<Q3Widget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
                                           color: Color(0xFF010101),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
                                         ),
                                     elevation: 0.0,
                                     borderRadius: BorderRadius.circular(30.0),

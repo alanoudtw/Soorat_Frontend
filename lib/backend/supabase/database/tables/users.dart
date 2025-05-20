@@ -46,4 +46,7 @@ class UsersRow extends SupabaseDataRow {
 
   String? get goal => getField<String>('goal');
   set goal(String? value) => setField<String>('goal', value);
+
+  DateTime? get dob => getField<DateTime>('DOB');
+  set dob(DateTime? value) => setField<DateTime>('DOB', value);
 }

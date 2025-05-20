@@ -207,8 +207,6 @@ dynamic deserializeParam<T>(
         switch (T) {
           case FeedbackRow:
             return FeedbackRow(data);
-          case UsersTestRow:
-            return UsersTestRow(data);
           case UsersRow:
             return UsersRow(data);
           case UploadImgRow:

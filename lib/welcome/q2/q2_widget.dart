@@ -1,11 +1,14 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
 import '/index.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'q2_model.dart';
 export 'q2_model.dart';
 
@@ -28,9 +31,6 @@ class _Q2WidgetState extends State<Q2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Q2Model());
-
-    _model.ageTextController ??= TextEditingController();
-    _model.ageFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -70,10 +70,23 @@ class _Q2WidgetState extends State<Q2Widget> {
                       textAlign: TextAlign.center,
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Work Sans',
+                                font: GoogleFonts.workSans(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontStyle,
+                                ),
                                 color: Color(0xFFF1F4F8),
                                 fontSize: 36.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontStyle,
                                 lineHeight: 2.5,
                               ),
                     ),
@@ -113,103 +126,205 @@ class _Q2WidgetState extends State<Q2Widget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Sora',
+                                    font: GoogleFonts.sora(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Color(0xFF3E423A),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 90.0, 0.0, 5.0),
+                              0.0, 70.0, 0.0, 15.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'pjeh8bf2' /* What is your age? */,
+                              'pjeh8bf2' /* Select your date of birth */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  font: GoogleFonts.roboto(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFF3E423A),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
-                        Container(
-                          width: 50.0,
-                          child: TextFormField(
-                            controller: _model.ageTextController,
-                            focusNode: _model.ageFocusNode,
-                            autofocus: false,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              isDense: true,
-                              labelStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      115.0, 0.0, 0.0, 0.0),
+                                  child: FlutterFlowIconButton(
+                                    borderRadius: 8.0,
+                                    buttonSize: 40.0,
+                                    fillColor: Color(0xFF44A553),
+                                    icon: Icon(
+                                      Icons.date_range,
+                                      color: FlutterFlowTheme.of(context).info,
+                                      size: 24.0,
+                                    ),
+                                    onPressed: () async {
+                                      await showModalBottomSheet<bool>(
+                                          context: context,
+                                          builder: (context) {
+                                            final _datePickedCupertinoTheme =
+                                                CupertinoTheme.of(context);
+                                            return ScrollConfiguration(
+                                              behavior:
+                                                  const MaterialScrollBehavior()
+                                                      .copyWith(
+                                                dragDevices: {
+                                                  PointerDeviceKind.mouse,
+                                                  PointerDeviceKind.touch,
+                                                  PointerDeviceKind.stylus,
+                                                  PointerDeviceKind.unknown
+                                                },
+                                              ),
+                                              child: Container(
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height /
+                                                    3,
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width,
+                                                color: Colors.white,
+                                                child: CupertinoTheme(
+                                                  data:
+                                                      _datePickedCupertinoTheme
+                                                          .copyWith(
+                                                    textTheme:
+                                                        _datePickedCupertinoTheme
+                                                            .textTheme
+                                                            .copyWith(
+                                                      dateTimePickerTextStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .headlineSmall
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .interTight(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmall
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Colors
+                                                                    .black,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmall
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmall
+                                                                    .fontStyle,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                  child: CupertinoDatePicker(
+                                                    mode:
+                                                        CupertinoDatePickerMode
+                                                            .date,
+                                                    minimumDate: DateTime(1900),
+                                                    initialDateTime:
+                                                        getCurrentTimestamp,
+                                                    maximumDate:
+                                                        getCurrentTimestamp,
+                                                    backgroundColor:
+                                                        Colors.white,
+                                                    use24hFormat: false,
+                                                    onDateTimeChanged:
+                                                        (newDateTime) =>
+                                                            safeSetState(() {
+                                                      _model.datePicked =
+                                                          newDateTime;
+                                                    }),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          });
+                                    },
                                   ),
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFF1F4F8),
-                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFF3DB549),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              filled: true,
-                              fillColor: Color(0xFFF1F4F8),
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: Color(0xFF3E423A),
-                                  letterSpacing: 0.0,
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  dateTimeFormat(
+                                    "d/M/y",
+                                    _model.datePicked,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.black,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                 ),
-                            keyboardType: TextInputType.number,
-                            cursorColor: Color(0xFF14181B),
-                            validator: _model.ageTextControllerValidator
-                                .asValidator(context),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                            ],
-                          ),
+                              ),
+                            ),
+                          ],
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 70.0, 0.0, 5.0),
+                              0.0, 50.0, 0.0, 5.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'yag3w5r0' /* What is your gender? */,
@@ -217,10 +332,23 @@ class _Q2WidgetState extends State<Q2Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  font: GoogleFonts.roboto(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFF3E423A),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -241,14 +369,40 @@ class _Q2WidgetState extends State<Q2Widget> {
                           optionWidth: 200.0,
                           textStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                           selectedTextStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Color(0xFF3E423A),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           buttonPosition: RadioButtonPosition.left,
                           direction: Axis.vertical,
@@ -283,18 +437,17 @@ class _Q2WidgetState extends State<Q2Widget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
-                                  onPressed: ((_model.ageTextController.text ==
-                                                  '') &&
+                                  onPressed: ((_model.datePicked == null) &&
                                           (_model.genderRadioButtonValue ==
                                                   null ||
                                               _model.genderRadioButtonValue ==
                                                   ''))
                                       ? null
                                       : () async {
-                                          FFAppState().age = int.parse(
-                                              _model.ageTextController.text);
                                           FFAppState().gender =
                                               _model.genderRadioButtonValue!;
+                                          FFAppState().dateOfBirthT =
+                                              _model.datePicked;
                                           safeSetState(() {});
 
                                           context.pushNamed(Q3Widget.routeName);
@@ -313,9 +466,26 @@ class _Q2WidgetState extends State<Q2Widget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
                                           color: Color(0xFF010101),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
                                         ),
                                     elevation: 0.0,
                                     borderRadius: BorderRadius.circular(30.0),

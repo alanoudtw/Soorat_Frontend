@@ -14,16 +14,6 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
-  String? _nameTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'n8so6p3p' /* Name is required */,
-      );
-    }
-
-    return null;
-  }
-
   // State field(s) for emailAddress widget.
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
@@ -49,20 +39,6 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   TextEditingController? passwordTextController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
-  String? _passwordTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        '7sv2h9pc' /* Password is required */,
-      );
-    }
-
-    if (val.length < 6) {
-      return 'Requires at least 6 characters.';
-    }
-
-    return null;
-  }
-
   // State field(s) for passwordConfirm widget.
   FocusNode? passwordConfirmFocusNode;
   TextEditingController? passwordConfirmTextController;
@@ -86,10 +62,8 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
 
   @override
   void initState(BuildContext context) {
-    nameTextControllerValidator = _nameTextControllerValidator;
     emailAddressTextControllerValidator = _emailAddressTextControllerValidator;
     passwordVisibility = false;
-    passwordTextControllerValidator = _passwordTextControllerValidator;
     passwordConfirmVisibility = false;
     passwordConfirmTextControllerValidator =
         _passwordConfirmTextControllerValidator;
